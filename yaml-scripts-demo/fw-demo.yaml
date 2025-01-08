@@ -1,0 +1,21 @@
+target:
+  url: https://www.xmind.ai/
+  output: ./output/fw-demo-items.json
+
+tasks:
+  - name: login
+    flow:
+      - aiAction: click 'Sign in'
+      - aiAction: waitForNavigation
+      - aiAction: type 'ben+1@xmind.net' in user name input, click 'Continue'
+      - aiAction: type '12345678' in password input, click 'Sign in'
+  - name: get team list
+    flow:
+      - aiQuery: >
+          {name: string}[], team list of Teams section
+        name: teamList
+  - name: create a new mind map in my works
+    flow:
+      - aiAction: click 'My Works'
+      - aiAction: click 'New Map'
+      - aiAction: click 'Blank Map'
