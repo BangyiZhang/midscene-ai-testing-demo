@@ -5,19 +5,27 @@ target:
 tasks:
   - name: login
     flow:
+      # 点击页面上的"Sign in"按钮，开始登录流程
       - aiAction: click 'Sign in'
+      # 等待页面导航完成，确保登录页面已加载
       - aiAction: waitForNavigation
   - name: login with email
     flow:
+      # 在用户名输入框中输入邮箱，然后点击"Continue"继续
       - aiAction: type 'ben+1@xmind.net' in user name input, click 'Continue'
-      - aiAction: type '12345678' in password input, click 'Sign in'
+      # 在密码输入框中输入密码，然后点击"Sign in"完成登录
+      - aiAction: type '123456' in password input, click 'Sign in'
   - name: get team list
     flow:
+      # 获取Teams部分的团队列表数据，返回包含团队名称的数组
       - aiQuery: >
           {name: string}[], team list of Teams section
         name: teamList
   - name: create a new mind map in my works
     flow:
+      # 点击"My Works"进入个人工作区
       - aiAction: click 'My Works'
+      # 点击"New Map"创建新的思维导图
       - aiAction: click 'New Map'
+      # 选择"Blank Map"创建空白思维导图
       - aiAction: click 'Blank Map'
