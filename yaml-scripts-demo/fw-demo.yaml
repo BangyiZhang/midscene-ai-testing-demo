@@ -7,6 +7,8 @@ tasks:
     flow:
       - aiAction: click 'Sign in'
       - aiAction: waitForNavigation
+  - name: login with email
+    flow:
       - aiAction: type 'ben+1@xmind.net' in user name input, click 'Continue'
       - aiAction: type '12345678' in password input, click 'Sign in'
   - name: get team list
